@@ -1,7 +1,8 @@
-PATH
-  remote: /code/omxplayer
+GIT
+  remote: git://github.com/nickcampbell18/omxplayer.git
+  revision: 38b15a33d6e7b3e68594cb1313754b4eba364b2b
   specs:
-    omxplayer (0.0.1)
+    omxplayer (0.0.2)
 
 GEM
   remote: http://rubygems.org/

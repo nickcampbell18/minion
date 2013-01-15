@@ -3,4 +3,4 @@ source :rubygems
 
 gem 'sinatra'
 gem 'unicorn'
-gem 'omxplayer', :path => '/code/omxplayer'
+gem 'omxplayer', :git => 'git://github.com/nickcampbell18/omxplayer.git' #:path => '/code/omxplayer'
