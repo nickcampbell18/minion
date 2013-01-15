@@ -1,3 +1,3 @@
-require File.dirname(__FILE__) + '/app/minion.rb'
+require File.dirname(__FILE__) + '/minion.rb'
 
 run Minion.new
