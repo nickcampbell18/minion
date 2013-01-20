@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minion</title>
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+  <style>
+  .player-buttons a.button.small {
+    font-size: 21px;
+  }
+  </style>
+</head>
+<body>
+
+
+  <div class="row">
+    <div class="twelve columns">
+      <nav class='top-bar'>
+        <ul>
+          <li class='name'><h1><a>Playing:</a></h1></li>
+        </ul>
+        <ul class='right player-controls'>
+          <li><a href='/player/backward'>&laquo; Skip</a></li>
+          <li><a href='/player/play'>&#9656; Play</a></li>
+          <li><a href='/player/quit'>&#9632; Stop</a></li>
+          <li><a href='/player/forward'>Skip &raquo;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class='row'>
+
+  <% @files.each_with_index do |file, index| %>
+    <div class='six columns'>
+      <div class='panel'>
+        <h5><%= file %></h5>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+  <script src='javascripts/jquery.js'></script>
+  <script type='text/javascript'>
+    $('.player-controls a').on('click', function(ev){
+      ev.preventDefault();
+      $.post($(this).attr('href'), function(data){
+        console.log(data);
+      });
+    });
+  </script>
+</body>
+</html>
