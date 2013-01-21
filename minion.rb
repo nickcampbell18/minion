@@ -6,6 +6,7 @@ class Minion < Sinatra::Base
 
   get '/play-file' do
     Omxplayer.instance.open "/media/zeus#{URI.unescape(params[:file])}"
+    redirect '/'
   end
 
   post '/player/:action' do
