@@ -37,7 +37,7 @@
       <% path = '/' %>
       <% @loc.each do |folder| %>
         <% path += "#{folder}/" %>
-        <li><a href='<%= path %>'><%= folder %></a></li>
+        <li><a href="<%= URI.escape path %>"><%= folder %></a></li>
       <% end %>
       </ul>
     </div>
@@ -48,7 +48,7 @@
     <div class='six columns'>
       <div class='panel'>
         <span class='label'>FOLDER</span>
-        <h5><a href='<%= "#{path}#{folder}" %>'><%= folder %></a></h5>
+        <h5><a href="<%= URI.escape "#{path}#{folder}" %>"><%= folder %></a></h5>
       </div>
     </div>
   <% end %>
@@ -59,7 +59,7 @@
     <div class='six columns'>
       <div class='panel'>
         <h5>
-          <a class='play-file' data-file='<%= URI.escape(path + file) %>' href='javascript:void(0);'>
+          <a class='play-file' data-file="<%= URI.escape(path + file) %>" href='javascript:void(0);'>
             <%= file %>
           </a>
         </h5>
