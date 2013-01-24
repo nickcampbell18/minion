@@ -2,5 +2,5 @@ ruby '1.9.3'
 source :rubygems
 
 gem 'sinatra'
-gem 'unicorn'
-gem 'omxplayer', '~> 0.0.7', :git => 'git://github.com/nickcampbell18/omxplayer.git' #:path => '/code/omxplayer'
+gem 'thin'
+gem 'omxplayer', '~> 0.2', :git => 'git://github.com/nickcampbell18/omxplayer.git' #:path => '/code/omxplayer' #

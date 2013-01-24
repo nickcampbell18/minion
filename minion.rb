@@ -4,9 +4,9 @@ load 'lib/directory.rb'
 
 class Minion < Sinatra::Base
 
-  get '/play-file' do
+  post '/play-file' do
     Omxplayer.instance.open "/media/zeus#{URI.unescape(params[:file])}"
-    redirect '/'
+    return Omxplayer.instance.status
   end
 
   post '/player/:action' do

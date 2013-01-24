@@ -17,7 +17,7 @@
     <div class="twelve columns">
       <nav class='top-bar'>
         <ul>
-          <li class='name'><h1><a>Playing:</a></h1></li>
+          <li class='name'><h1><a class='filename'>Not playing</a></h1></li>
         </ul>
         <ul class='right player-controls'>
           <li><a href='/player/backward'>&laquo; Skip</a></li>
@@ -59,7 +59,7 @@
     <div class='six columns'>
       <div class='panel'>
         <h5>
-          <a href='/play-file?file=<%= URI.escape(path + file) %>'>
+          <a class='play-file' data-file='<%= URI.escape(path + file) %>' href='javascript:void(0);'>
             <%= file %>
           </a>
         </h5>
@@ -76,6 +76,13 @@
       $.post($(this).attr('href'), function(data){
         console.log(data);
       });
+    });
+    $('.play-file').on('click', function(ev){
+      $.post( "/play-file?file=" + $(this).data('file'),
+        function(data){
+          $('.top-bar .filename').html(data);
+        }
+      );
     });
   </script>
 </body>

@@ -1,30 +1,31 @@
-PATH
-  remote: /code/omxplayer
+GIT
+  remote: git://github.com/nickcampbell18/omxplayer.git
+  revision: 640b59a3af92cec26cda1fdffdc12d0a479c3eda
   specs:
-    omxplayer (0.0.6)
+    omxplayer (0.2)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    kgio (2.7.4)
+    daemons (1.1.9)
+    eventmachine (1.0.0)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
-    raindrops (0.10.0)
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    thin (1.5.0)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     tilt (1.3.3)
-    unicorn (4.5.0)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  omxplayer (~> 0.0.5)!
+  omxplayer (~> 0.2)!
   sinatra
-  unicorn
+  thin
