@@ -13,7 +13,7 @@ class Directory
         files << f if f =~ VID_FILETYPES
       end
     end
-    [folders, files, arr]
+    [folders.sort, files.sort, arr]
   end
 
 end
