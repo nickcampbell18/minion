@@ -5,18 +5,26 @@ load 'lib/directory.rb'
 class Minion < Sinatra::Base
 
   post '/play-file' do
-    Omxplayer.instance.open "/media/zeus#{URI.unescape(params[:file])}"
-    return Omxplayer.instance.status
+    omx.open "/media/zeus#{URI.unescape(params[:file])}"
+    omx.status
   end
 
   post '/player/:action' do
-    Omxplayer.instance.action params[:action]
+    omx.action params[:action]
+  end
+
+  get '/status' do
+    omx.status
   end
 
   get '/*' do
     loc = params[:splat].first.split('/')
     @folders, @files, @loc = Directory.files_and_folders(loc)
     erb :index
+  end
+
+  def omx
+    Omxplayer.instance
   end
 
 end

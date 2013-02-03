@@ -17,7 +17,7 @@
     <div class="twelve columns">
       <nav class='top-bar'>
         <ul>
-          <li class='name'><h1><a class='filename'>Not playing</a></h1></li>
+          <li class='name'><h1><a id='status' class='filename'>Not playing</a></h1></li>
         </ul>
         <ul class='right player-controls'>
           <li><a href='/player/backward'>&laquo; Skip</a></li>
@@ -69,7 +69,8 @@
   </div>
 
 </div>
-  <script src='/javascripts/jquery.js'></script>
+  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/XMLHttpRequest.js"></script>
   <script type='text/javascript'>
     $('.player-controls a').on('click', function(ev){
       ev.preventDefault();
@@ -80,10 +81,19 @@
     $('.play-file').on('click', function(ev){
       $.post( "/play-file?file=" + $(this).data('file'),
         function(data){
-          $('.top-bar .filename').html(data);
+          $('#status').html(data);
         }
       );
     });
+    $(function(){
+      getStatus();
+    })
+    var getStatus = function(){
+      $.get('/status', function(data){
+        $('#status').html(data);
+      });
+      setInterval(getStatus, 3000);
+    }
   </script>
 </body>
 </html>
