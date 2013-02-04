@@ -70,7 +70,6 @@
 
 </div>
   <script type="text/javascript" src="/javascripts/jquery.js"></script>
-  <script type="text/javascript" src="/javascripts/XMLHttpRequest.js"></script>
   <script type='text/javascript'>
     $('.player-controls a').on('click', function(ev){
       ev.preventDefault();
@@ -85,15 +84,15 @@
         }
       );
     });
-    $(function(){
-      getStatus();
-    })
-    var getStatus = function(){
-      $.get('/status', function(data){
-        $('#status').html(data);
-      });
-      setInterval(getStatus, 3000);
-    }
+    setInterval(function(){
+        $.get('/status').
+          done(function(data){
+            $('#status').html(data);
+          }).
+          fail(function(){
+            $('#status').html("Not playing");
+          });
+      }, 5000);
   </script>
 </body>
 </html>
