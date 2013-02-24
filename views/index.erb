@@ -2,36 +2,30 @@
 <html lang='en'>
 <head>
   <title>Minion</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="/stylesheets/app.css">
-  <style>
-  .player-buttons a.button.small {
-    font-size: 21px;
-  }
-  </style>
+  <script type="text/javascript" src="/javascripts/foundation.min.js"></script>
 </head>
 <body>
-
-
-  <div class="row">
-    <div class="twelve columns">
-      <nav class='top-bar'>
-        <ul>
-          <li class='name'><h1><a id='status' class='filename'>Not playing</a></h1></li>
-        </ul>
-        <ul class='right player-controls'>
-          <li><a href='/player/backward'>&laquo; Skip</a></li>
-          <li><a href='/player/play'>&#9656; Play</a></li>
-          <li><a href='/player/quit'>&#9632; Stop</a></li>
-          <li><a href='/player/forward'>Skip &raquo;</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <div class='row'>
-    <div class='twelve columns'>
-      <ul class='breadcrumbs'>
+  <div class='fixed'>
+    <nav class='top-bar'>
+      <ul>
+        <li class='name'><h1><a id='status' class='filename'>Not playing</a></h1></li>
+        <li class='toggle-topbar'><a href='#'></a></li>
+      </ul>
+      <section>
+      <ul class='right player-controls'>
+        <li><a href='/player/backward' id='omx-skipback'>&laquo; Skip</a></li>
+        <li><a href='/player/play' id='omx-play'>&#9656; Play</a></li>
+        <li><a href='/player/quit' id='omx-quit'>&#9632; Stop</a></li>
+        <li><a href='/player/forward' id='omx-skipforward'>Skip &raquo;</a></li>
+        <li><a href='/player/subtitles'>Subtitles</a></li>
+      </ul>
+    </section>
+    </nav>
+    <ul class='breadcrumbs'>
         <li class='unavailable'><a>media</a></li>
         <li><a href='/'>zeus</a></li>
       <% path = '/' %>
@@ -40,6 +34,12 @@
         <li><a href="<%= URI.escape path %>"><%= folder %></a></li>
       <% end %>
       </ul>
+  </div>
+
+
+  <div class='row'>
+    <div class='twelve columns'>
+
     </div>
   </div>
 
@@ -69,8 +69,8 @@
   </div>
 
 </div>
-  <script type="text/javascript" src="/javascripts/jquery.js"></script>
   <script type='text/javascript'>
+    $(document).foundationTopBar();
     $('.player-controls a').on('click', function(ev){
       ev.preventDefault();
       $.post($(this).attr('href'), function(data){
@@ -93,6 +93,15 @@
             $('#status').html("Not playing");
           });
       }, 5000);
+    $(document).keyup(function(e){
+      e.preventDefault();
+      switch(e.keyCode){
+        case 32 : $('#omx-play').trigger('click'); break;        // spacebar
+        case 37 : $('#omx-skipback').trigger('click'); break;    // left-arrow
+        case 39 : $('#omx-skipforward').trigger('click'); break; // right-arrow
+        case 81 : $('#omx-quit').trigger('click'); break;        // q
+      }
+    });
   </script>
 </body>
 </html>

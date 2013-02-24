@@ -4,3 +4,9 @@
   overflow: hidden;
   white-space: nowrap;
 }
+.top-bar {
+  margin-bottom: 0;
+}
+body {
+  padding-top: 95px!important;
+}

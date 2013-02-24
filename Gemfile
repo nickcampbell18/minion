@@ -3,5 +3,5 @@ source :rubygems
 
 gem 'sinatra'
 gem 'thin'
-gem 'omxplayer', '~> 0.4.0', :git => 'git://github.com/nickcampbell18/omxplayer.git'
+gem 'omxplayer', '~> 0.4.1', :git => 'git://github.com/nickcampbell18/omxplayer.git'
 #gem 'omxplayer', :path => '/code/omxplayer'

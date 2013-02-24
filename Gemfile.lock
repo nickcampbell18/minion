@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/nickcampbell18/omxplayer.git
-  revision: 3438576cea7337536a981b43a8d392ac368b1158
+  revision: b4c80813048513c02d4f001f936d5fccef11412d
   specs:
-    omxplayer (0.4.0)
+    omxplayer (0.4.1)
 
 GEM
   remote: http://rubygems.org/
@@ -26,6 +26,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  omxplayer (~> 0.4.0)!
+  omxplayer (~> 0.4.1)!
   sinatra
   thin
