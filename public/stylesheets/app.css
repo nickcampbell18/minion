@@ -13,3 +13,16 @@ body {
 a.play-file {
   word-wrap: break-word;
 }
+.folders .side-nav li a {
+  word-wrap: break-word;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  .folders .side-nav {
+    padding: 0;
+  }
+  .folders .side-nav a {
+    padding: 3px;
+  }
+}

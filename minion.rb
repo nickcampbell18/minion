@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'omxplayer'
 load 'lib/directory.rb'
+load 'lib/array.rb'
 
 class Minion < Sinatra::Base
 

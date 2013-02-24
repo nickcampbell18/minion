@@ -46,17 +46,6 @@
   </div>
 
   <div class='row'>
-  <% @folders.each do |folder| %>
-    <div class='six columns'>
-      <div class='panel'>
-        <span class='label'>FOLDER</span>
-        <h5><a href="<%= URI.escape "#{path}#{folder}" %>"><%= folder %></a></h5>
-      </div>
-    </div>
-  <% end %>
-  </div>
-
-  <div class='row'>
   <% @files.each do |file| %>
     <div class='six columns'>
       <div class='panel'>
@@ -69,6 +58,29 @@
     </div>
   <% end %>
   </div>
+
+  <div class='row'>
+    <div class='twelve columns'>
+      <div class='panel folders'>
+        <h4>Sub-folders: <%= @folders.size %></h4>
+        <div class='row'>
+        <% @folders.in_groups(3).each do |group| %>
+          <div class='four columns'>
+            <ul class='side-nav'>
+              <% group.each do |folder| %>
+                <li>
+                  <a href="<%= URI.escape "#{path}#{folder}" %>"><%= folder %></a>
+                </li>
+                <li class='divider'></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
   <script type='text/javascript'>
