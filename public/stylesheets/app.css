@@ -8,5 +8,8 @@
   margin-bottom: 0;
 }
 body {
-  padding-top: 95px!important;
+  padding-top: 98px!important;
+}
+a.play-file {
+  word-wrap: break-word;
 }
