@@ -6,7 +6,8 @@ load 'lib/array.rb'
 class Minion < Sinatra::Base
 
   post '/play-file' do
-    omx.open "/media/zeus#{URI.unescape(params[:file])}"
+    audio_out = params[:audio_out] || 'hdmi'
+    omx.open "/media/zeus#{URI.unescape(params[:file])}", :audio_output => audio_out
     omx.status
   end
 

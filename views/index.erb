@@ -92,7 +92,7 @@
       });
     });
     $('.play-file').on('click', function(ev){
-      $.post( "/play-file?file=" + $(this).data('file'),
+      $.post( "/play-file?audio_out=local&file=" + $(this).data('file'),
         function(data){
           $('#status').html(data);
         }

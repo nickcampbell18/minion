@@ -1,7 +1,7 @@
-ruby '1.9.3'
-source :rubygems
+ruby '2.0.0'
+source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'thin'
-gem 'omxplayer', '~> 0.4.1', :git => 'git://github.com/nickcampbell18/omxplayer.git'
+gem 'omxplayer', '~> 0.5.0', :git => 'git://github.com/nickcampbell18/omxplayer.git'
 #gem 'omxplayer', :path => '/code/omxplayer'
